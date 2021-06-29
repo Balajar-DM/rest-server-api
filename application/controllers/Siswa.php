@@ -52,7 +52,7 @@ class Siswa extends RestController
     }
 
     public function index_post()
-    {   
+    {
         //Sesuaikan dengan urutan field di table
         $data = [
             'nisn' => $this->post('nisn'),
@@ -76,6 +76,34 @@ class Siswa extends RestController
             $this->response([
                 'status' => false,
                 'message' => 'failed to create new data'
+            ], 400);
+        }
+    }
+
+    public function index_put()
+    {
+        $id = $this->put('id');
+        $data = [
+            'nisn' => $this->put('nisn'),
+            'nama' => $this->put('nama'),
+            'jurusan_id' => $this->put('jurusan_id'),
+            'kelas_id' => $this->put('kelas_id'),
+            'jk_siswa' => $this->put('jk_siswa'),
+            'tempt_lahir' => $this->put('tempt_lahir'),
+            'tgl_lahir' => $this->put('tgl_lahir'),
+            'no_telp' => $this->put('no_telp'),
+            'agama' => $this->put('agama'),
+            'alamat' => $this->put('alamat'),
+        ];
+        if ($this->M_app->update('siswa', $data, ['id_siswa' => $id]) > 0) {
+            $this->response([
+                'status' => true,
+                'messages' => 'data siswa has been updated'
+            ], 201);
+        } else {
+            $this->response([
+                'status' => false,
+                'message' => 'failed to update data'
             ], 400);
         }
     }

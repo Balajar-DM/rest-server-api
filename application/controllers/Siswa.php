@@ -13,12 +13,24 @@ class Siswa extends RestController
 
     public function index_get()
     {
-        $siswa = $this->M_app->view("siswa");
+        $id = $this->get('id');
+
+        if (empty($id)) {
+            $siswa = $this->M_app->view("siswa");
+        } else {
+            $siswa = $this->M_app->view_where("siswa", ['id_siswa' => $id]);
+        }
+
         if ($siswa) {
-            $this->response( [
+            $this->response([
                 'status' => true,
-                'data' => $siswa
-            ], 200 );
+                'data' => $siswa,
+            ], 200);
+        } else {
+            $this->response([
+                'status' => false,
+                'message' => 'id not found'
+            ], 404);
         }
     }
 }

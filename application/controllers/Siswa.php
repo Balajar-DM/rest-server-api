@@ -13,6 +13,12 @@ class Siswa extends RestController
 
     public function index_get()
     {
-        # code...
+        $siswa = $this->M_app->view("siswa");
+        if ($siswa) {
+            $this->response( [
+                'status' => true,
+                'data' => $siswa
+            ], 200 );
+        }
     }
 }

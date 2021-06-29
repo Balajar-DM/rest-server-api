@@ -27,7 +27,7 @@ class M_app extends CI_Model
     {
         $this->db->delete($table, $data);
     }
-    
+
     public function view_where($table, $data)
     {
         $this->db->where($data);

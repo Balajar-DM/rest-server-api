@@ -33,4 +33,21 @@ class Siswa extends RestController
             ], 404);
         }
     }
+
+    public function index_delete()
+    {
+        $id = $this->delete('id');
+        if ($this->M_app->delete_data("siswa", ['id_siswa' => $id]) > 0) {
+            $this->response([
+                'status' => true,
+                'id' => $id,
+                'messages' => 'Deleted'
+            ], 200);
+        } else {
+            $this->response([
+                'status' => false,
+                'message' => 'provide on id'
+            ], 400);
+        }
+    }
 }

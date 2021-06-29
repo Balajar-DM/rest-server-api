@@ -26,6 +26,7 @@ class M_app extends CI_Model
     public function delete_data($table, $data)
     {
         $this->db->delete($table, $data);
+        return $this->db->affected_rows();
     }
 
     public function view_where($table, $data)

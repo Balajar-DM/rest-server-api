@@ -5,7 +5,7 @@ class M_app extends CI_Model
     public function insert($table, $data)
     {
         $this->db->insert($table, $data);
-        return $this->db->insert_id();
+        return $this->db->affected_rows();
     }
 
     public function update($table, $data, $where)

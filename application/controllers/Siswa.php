@@ -50,4 +50,33 @@ class Siswa extends RestController
             ], 400);
         }
     }
+
+    public function index_post()
+    {   
+        //Sesuaikan dengan urutan field di table
+        $data = [
+            'nisn' => $this->post('nisn'),
+            'nama' => $this->post('nama'),
+            'jurusan_id' => $this->post('jurusan_id'),
+            'kelas_id' => $this->post('kelas_id'),
+            'jk_siswa' => $this->post('jk_siswa'),
+            'tempt_lahir' => $this->post('tempt_lahir'),
+            'tgl_lahir' => $this->post('tgl_lahir'),
+            'no_telp' => $this->post('no_telp'),
+            'agama' => $this->post('agama'),
+            'alamat' => $this->post('alamat'),
+        ];
+
+        if ($this->M_app->insert("siswa", $data) > 0) {
+            $this->response([
+                'status' => true,
+                'messages' => 'New data siswa created'
+            ], 201);
+        } else {
+            $this->response([
+                'status' => false,
+                'message' => 'failed to create new data'
+            ], 400);
+        }
+    }
 }

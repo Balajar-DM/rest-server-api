@@ -25,12 +25,12 @@ class Siswa extends RestController
             $this->response([
                 'status' => true,
                 'data' => $siswa,
-            ], 200);
+            ], RestController::HTTP_OK);
         } else {
             $this->response([
                 'status' => false,
                 'message' => 'id not found'
-            ], 404);
+            ], RestController::HTTP_NOT_FOUND);
         }
     }
 
@@ -42,7 +42,7 @@ class Siswa extends RestController
                 'status' => true,
                 'id' => $id,
                 'messages' => 'Deleted'
-            ], 200);
+            ], RestController::HTTP_OK);
         } else {
             $this->response([
                 'status' => false,

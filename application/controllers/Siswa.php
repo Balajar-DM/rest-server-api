@@ -9,6 +9,12 @@ class Siswa extends RestController
     {
         parent::__construct();
         $this->load->model('M_app');
+
+        //For limit request
+        $this->methods['index_get']['limit'] = 500; // 500 request per user
+        $this->methods['index_post']['limit'] = 100;
+        $this->methods['index_put']['limit'] = 100;
+        $this->methods['index_delete']['limit'] = 100;
     }
 
     public function index_get()

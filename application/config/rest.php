@@ -376,7 +376,7 @@ $config['rest_key_length'] = 40;
 | 2012/06/12. See RFC 6648 specification for more details
 |
 */
-$config['rest_key_name'] = 'X-API-KEY';
+$config['rest_key_name'] = 'dcim-key';
 
 /*
 |--------------------------------------------------------------------------
@@ -486,7 +486,7 @@ $config['rest_logs_json_params'] = false;
 |
 | See application/controllers/api/example.php for examples
 */
-$config['rest_enable_limits'] = false;
+$config['rest_enable_limits'] = true;
 
 /*
 |--------------------------------------------------------------------------
